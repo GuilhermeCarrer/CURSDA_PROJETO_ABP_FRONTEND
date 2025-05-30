@@ -6,7 +6,7 @@ import { Login } from './components/login/login';
   selector: 'app-root',
   imports: [RouterOutlet, Login],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'] 
 })
 export class App {
   protected title = 'sistema_de_liberacao_de_curso';

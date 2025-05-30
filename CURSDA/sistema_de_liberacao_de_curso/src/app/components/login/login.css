@@ -1,187 +1,125 @@
-/* Paleta de Cores Roxo */
-:root {
-    --purple-dark: #3F2C5F; /* Roxo Escuro quase preto */
-    --purple-medium: #6A3E9F; /* Roxo Médio */
-    --purple-light: #9C6FE6; /* Roxo Claro */
-    --purple-accent: #B08DFF; /* Roxo de Destaque */
-    --text-light: #f4f4f4; /* Texto claro */
-    --text-dark: #333; /* Texto escuro */
-    --input-bg: rgba(255, 255, 255, 0.1); /* Fundo do input translúcido */
-    --border-color: rgba(255, 255, 255, 0.2); /* Cor da borda */
+/* Define as variáveis de cor para o tema roxo deste componente */
+:host {
+  --purple-primary: #6A0DAD; /* Roxo principal vibrante */
+  --purple-dark: #4B0082;   /* Roxo mais escuro para botões/hover */
+  --purple-light-bg: #f3e8ff; /* Um fundo roxo bem clarinho para o input */
+  --text-on-purple: #FFFFFF; /* Texto branco para contraste */
+  --text-dark: #333333;      /* Texto escuro para labels */
+  --border-color: #D1C4E9;   /* Cor de borda suave */
+  --box-shadow-color: rgba(75, 0, 130, 0.2); /* Sombra com tom roxo */
 }
 
-/* Estilos Globais */
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, var(--purple-dark), var(--purple-medium)); /* Gradiente de roxo no fundo */
-    color: var(--text-light);
-    overflow: hidden; /* Para evitar scroll se o conteúdo for menor */
+.purple-login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* Ajuste conforme necessário para ocupar a tela */
+  padding: 20px;
+  /* O fundo gradiente da página inteira deve ir em src/styles.css (no body)
+     Exemplo para src/styles.css:
+     body {
+       background: linear-gradient(135deg, #3F2C5F, #6A3E9F);
+       font-family: 'Poppins', sans-serif; /* ou sua fonte preferida */
 }
 
-/* Container Principal do Login */
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 1; /* Garante que o conteúdo fique acima do fundo */
+.login-box-purple {
+  background-color: #FFFFFF; /* Caixa de login branca para contraste */
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px var(--box-shadow-color);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid var(--border-color);
 }
 
-/* Caixa de Login */
-.login-box {
-    background: rgba(255, 255, 255, 0.08); /* Fundo translúcido */
-    border-radius: 15px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
-    border: 1px solid var(--border-color); /* Borda sutil */
-    backdrop-filter: blur(10px); /* Efeito de vidro embaçado */
-    -webkit-backdrop-filter: blur(10px); /* Compatibilidade Safari */
+.title-purple {
+  color: var(--purple-primary);
+  font-size: 2em; /* 2 vezes o tamanho da fonte base */
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
-.login-title {
-    font-size: 2.5em;
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: var(--text-light);
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+.subtitle-purple {
+  color: #555;
+  font-size: 1em;
+  margin-bottom: 25px;
 }
 
-.login-subtitle {
-    font-size: 1.1em;
-    font-weight: 300;
-    margin-bottom: 30px;
-    color: var(--text-light);
+.form-purple {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Formulário */
-.login-form .input-group {
-    margin-bottom: 20px;
-    text-align: left;
+.input-field-purple {
+  margin-bottom: 20px;
+  text-align: left;
 }
 
-.login-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 0.95em;
-    font-weight: 600;
-    color: var(--text-light);
+.input-field-purple label {
+  display: block;
+  color: var(--text-dark);
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: 0.9em;
 }
 
-.login-form input[type="text"],
-.login-form input[type="password"] {
-    width: calc(100% - 20px); /* Subtrai o padding */
-    padding: 12px 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    background: var(--input-bg);
-    color: var(--text-light);
-    font-size: 1em;
-    outline: none; /* Remove o contorno azul ao focar */
-    transition: border-color 0.3s ease, background-color 0.3s ease;
+.input-field-purple input[type="email"],
+.input-field-purple input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  box-sizing: border-box; /* Garante que padding não aumente a largura total */
+  font-size: 1em;
+  background-color: var(--purple-light-bg); /* Fundo roxo bem clarinho */
+  color: var(--text-dark); /* Cor do texto digitado */
+  transition: border-color 0.3s ease;
 }
 
-.login-form input[type="text"]::placeholder,
-.login-form input[type="password"]::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+.input-field-purple input[type="email"]::placeholder,
+.input-field-purple input[type="password"]::placeholder {
+  color: #999; /* Cor do placeholder */
 }
 
-.login-form input[type="text"]:focus,
-.login-form input[type="password"]:focus {
-    border-color: var(--purple-accent);
-    background-color: rgba(255, 255, 255, 0.15);
+.input-field-purple input[type="email"]:focus,
+.input-field-purple input[type="password"]:focus {
+  border-color: var(--purple-primary);
+  outline: none; /* Remove o contorno padrão do navegador */
+  box-shadow: 0 0 0 2px rgba(106, 13, 173, 0.2); /* Um leve brilho roxo no foco */
 }
 
-/* Lembre-se de Mim */
-.remember-me {
-    display: flex;
-    align-items: center;
-    margin-bottom: 25px;
-    font-size: 0.9em;
-    justify-content: flex-start; /* Alinha à esquerda */
+.button-purple {
+  background-color: var(--purple-primary);
+  color: var(--text-on-purple);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.remember-me input[type="checkbox"] {
-    margin-right: 8px;
-    /* Estilos personalizados para o checkbox (opcional, pode ser mais complexo) */
-    accent-color: var(--purple-accent); /* Cor do checkbox no Chrome/Edge */
+.button-purple:hover {
+  background-color: var(--purple-dark);
 }
 
-/* Botão de Login */
-.login-button {
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(45deg, var(--purple-accent), var(--purple-light)); /* Gradiente no botão */
-    border: none;
-    border-radius: 8px;
-    color: var(--purple-dark); /* Texto escuro no botão claro */
-    font-size: 1.1em;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+.links-purple {
+  margin-top: 25px;
+  font-size: 0.9em;
 }
 
-.login-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+.links-purple a {
+  color: var(--purple-primary);
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.2s ease;
 }
 
-.login-button:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Links Adicionais */
-.links {
-    margin-top: 30px;
-    font-size: 0.9em;
-    color: var(--text-light);
-}
-
-.links a {
-    color: var(--purple-accent);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-}
-
-.links a:hover {
-    color: var(--text-light);
-    text-decoration: underline;
-}
-
-.links span {
-    margin: 0 10px;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-/* Responsividade Básica */
-@media (max-width: 500px) {
-    .login-box {
-        margin: 20px;
-        padding: 30px 20px;
-    }
-    .login-title {
-        font-size: 2em;
-    }
-    .login-subtitle {
-        font-size: 1em;
-    }
-    .links {
-        flex-direction: column;
-    }
-    .links span {
-        display: none; /* Esconde o separador em telas pequenas */
-    }
+.links-purple a:hover {
+  color: var(--purple-dark);
+  text-decoration: underline;
 }
