@@ -1,0 +1,187 @@
+/* Paleta de Cores Roxo */
+:root {
+    --purple-dark: #3F2C5F; /* Roxo Escuro quase preto */
+    --purple-medium: #6A3E9F; /* Roxo Médio */
+    --purple-light: #9C6FE6; /* Roxo Claro */
+    --purple-accent: #B08DFF; /* Roxo de Destaque */
+    --text-light: #f4f4f4; /* Texto claro */
+    --text-dark: #333; /* Texto escuro */
+    --input-bg: rgba(255, 255, 255, 0.1); /* Fundo do input translúcido */
+    --border-color: rgba(255, 255, 255, 0.2); /* Cor da borda */
+}
+
+/* Estilos Globais */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--purple-dark), var(--purple-medium)); /* Gradiente de roxo no fundo */
+    color: var(--text-light);
+    overflow: hidden; /* Para evitar scroll se o conteúdo for menor */
+}
+
+/* Container Principal do Login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1; /* Garante que o conteúdo fique acima do fundo */
+}
+
+/* Caixa de Login */
+.login-box {
+    background: rgba(255, 255, 255, 0.08); /* Fundo translúcido */
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid var(--border-color); /* Borda sutil */
+    backdrop-filter: blur(10px); /* Efeito de vidro embaçado */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilidade Safari */
+}
+
+.login-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-light);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.login-subtitle {
+    font-size: 1.1em;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: var(--text-light);
+}
+
+/* Formulário */
+.login-form .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: calc(100% - 20px); /* Subtrai o padding */
+    padding: 12px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--input-bg);
+    color: var(--text-light);
+    font-size: 1em;
+    outline: none; /* Remove o contorno azul ao focar */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.login-form input[type="text"]::placeholder,
+.login-form input[type="password"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: var(--purple-accent);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Lembre-se de Mim */
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 0.9em;
+    justify-content: flex-start; /* Alinha à esquerda */
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 8px;
+    /* Estilos personalizados para o checkbox (opcional, pode ser mais complexo) */
+    accent-color: var(--purple-accent); /* Cor do checkbox no Chrome/Edge */
+}
+
+/* Botão de Login */
+.login-button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, var(--purple-accent), var(--purple-light)); /* Gradiente no botão */
+    border: none;
+    border-radius: 8px;
+    color: var(--purple-dark); /* Texto escuro no botão claro */
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+}
+
+.login-button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Links Adicionais */
+.links {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: var(--text-light);
+}
+
+.links a {
+    color: var(--purple-accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.links a:hover {
+    color: var(--text-light);
+    text-decoration: underline;
+}
+
+.links span {
+    margin: 0 10px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsividade Básica */
+@media (max-width: 500px) {
+    .login-box {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+    .login-title {
+        font-size: 2em;
+    }
+    .login-subtitle {
+        font-size: 1em;
+    }
+    .links {
+        flex-direction: column;
+    }
+    .links span {
+        display: none; /* Esconde o separador em telas pequenas */
+    }
+}
